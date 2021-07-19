@@ -6,6 +6,6 @@ class Fallback
 {
     public function errorNotFound()
     {
-        echo 'Oops, the route not found.';
+        App::instance()->get('response')->setContent('Oops, the route not found.');
     }
 }

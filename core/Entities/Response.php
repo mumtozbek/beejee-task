@@ -33,7 +33,7 @@ class Response
         $this->content = $content;
     }
 
-    public function output()
+    public function render()
     {
         if (!headers_sent()) {
             foreach ($this->headers as $header) {

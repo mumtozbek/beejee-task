@@ -2,6 +2,7 @@
 
 namespace Core\Entities;
 
+use Core\App;
 use Core\Fallback;
 
 class Router
@@ -24,5 +25,7 @@ class Router
         }
 
         call_user_func($callback);
+
+        App::instance()->get('response')->render();
     }
 }
