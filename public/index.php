@@ -6,7 +6,7 @@ $rootPath = realpath(__DIR__ . '/..');
 require $rootPath . '/vendor/autoload.php';
 
 try {
-    $app = App\Instance::instance($rootPath);
+    $app = App\Instance::init();
     $app->run();
 } catch (\Exception $exception) {
     echo $exception->getMessage() . "\n";

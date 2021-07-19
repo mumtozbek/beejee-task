@@ -8,10 +8,19 @@ abstract class App
 
     private $data = [];
 
+    public static function init(...$args)
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = new static(...$args);
+        }
+
+        return self::$instance;
+    }
+
     public static function instance()
     {
         if (is_null(self::$instance)) {
-            self::$instance = new static();
+            throw new \Exception('Application is not initialized yet.');
         }
 
         return self::$instance;
