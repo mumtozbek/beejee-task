@@ -6,22 +6,12 @@ abstract class App
 {
     private static $instance;
 
-    private $path = '';
     private $data = [];
 
-    private function __construct(string $path)
-    {
-        $this->path = $path;
-
-        if (method_exists($this, 'boot')) {
-            $this->boot();
-        }
-    }
-
-    public static function instance(string $path)
+    public static function instance()
     {
         if (is_null(self::$instance)) {
-            self::$instance = new static($path);
+            self::$instance = new static();
         }
 
         return self::$instance;
@@ -39,11 +29,6 @@ abstract class App
         }
 
         return $this->data[$code];
-    }
-
-    public function getPath()
-    {
-        return $this->path;
     }
 
     abstract public function run();

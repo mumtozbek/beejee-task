@@ -11,9 +11,9 @@ use Core\Entities\Session;
 
 class Instance extends App
 {
-    protected function boot()
+    protected function __construct()
     {
-        $this->set('router', new Router(require $this->getPath() . '/app/routes.php'));
+        $this->set('router', new Router(require __DIR__ . '/routes.php'));
 
         $this->set('database', new Database());
 
