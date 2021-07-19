@@ -17,7 +17,7 @@ class Instance extends App
 
         $this->set('router', new Router(require __DIR__ . '/routes.php'));
 
-        $this->set('database', new Database());
+        $this->set('database', new Database($this->get('config')->get('db.host'), $this->get('config')->get('db.user'), $this->get('config')->get('db.pass'), $this->get('config')->get('db.base')));
 
         $this->set('request', new Request());
 
