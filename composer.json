@@ -1,0 +1,17 @@
+{
+    "name": "mumtozbek/beejee",
+    "description": "BeeJee Task List",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/",
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mumtoz Kodirov",
+            "email": "imumtoz@gmail.com"
+        }
+    ]
+}
