@@ -12,6 +12,10 @@ abstract class App
     private function __construct(string $path)
     {
         $this->path = $path;
+
+        if (method_exists($this, 'boot')) {
+            $this->boot();
+        }
     }
 
     public static function instance(string $path)
@@ -41,4 +45,6 @@ abstract class App
     {
         return $this->path;
     }
+
+    abstract public function run();
 }
