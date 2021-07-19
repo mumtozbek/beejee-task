@@ -13,11 +13,21 @@ class Instance extends App
 {
     protected function boot()
     {
+        $this->set('router', new Router(require $this->getPath() . '/app/routes.php'));
 
+        $this->set('database', new Database());
+
+        $this->set('request', new Request());
+
+        $this->set('response', new Response());
+
+        $this->set('session', new Session());
     }
 
     public function run()
     {
+        $route = $this->get('request')->get('route', 'auth');
 
+        $this->get('router')->run($route);
     }
 }
