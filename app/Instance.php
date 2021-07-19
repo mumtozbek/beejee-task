@@ -26,7 +26,7 @@ class Instance extends App
 
     public function run()
     {
-        $route = $this->get('request')->get('route', 'auth');
+        $route = $this->get('request')->get('route', $this->get('config')->get('default_route'));
 
         $this->get('router')->run($route);
     }
